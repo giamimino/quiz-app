@@ -1,0 +1,257 @@
+[
+  {
+    "question": "What is the capital of Japan?",
+    "options": ["Seoul", "Tokyo", "Beijing", "Bangkok"],
+    "correctAnswer": "Tokyo"
+  },
+  {
+    "question": "Which gas do humans breathe in to survive?",
+    "options": ["Carbon Dioxide", "Oxygen", "Nitrogen", "Helium"],
+    "correctAnswer": "Oxygen"
+  },
+  {
+    "question": "How many legs does a spider have?",
+    "options": ["6", "8", "10", "12"],
+    "correctAnswer": "8"
+  },
+  {
+    "question": "Which planet is closest to the Sun?",
+    "options": ["Earth", "Mercury", "Venus", "Mars"],
+    "correctAnswer": "Mercury"
+  },
+  {
+    "question": "What is H2O commonly known as?",
+    "options": ["Hydrogen", "Salt", "Water", "Oxygen"],
+    "correctAnswer": "Water"
+  },
+  {
+    "question": "Which shape has 4 equal sides and 4 right angles?",
+    "options": ["Rectangle", "Square", "Triangle", "Trapezoid"],
+    "correctAnswer": "Square"
+  },
+  {
+    "question": "What is the largest ocean on Earth?",
+    "options": ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"],
+    "correctAnswer": "Pacific Ocean"
+  },
+  {
+    "question": "Which number is a prime number?",
+    "options": ["4", "9", "11", "15"],
+    "correctAnswer": "11"
+  },
+  {
+    "question": "What is the process by which plants make their food?",
+    "options": ["Respiration", "Photosynthesis", "Digestion", "Fermentation"],
+    "correctAnswer": "Photosynthesis"
+  },
+  {
+    "question": "Who discovered gravity?",
+    "options": ["Albert Einstein", "Isaac Newton", "Galileo Galilei", "Nikola Tesla"],
+    "correctAnswer": "Isaac Newton"
+  },
+  {
+    "question": "Which country is known for the Eiffel Tower?",
+    "options": ["Germany", "France", "Italy", "Spain"],
+    "correctAnswer": "France"
+  },
+  {
+    "question": "How many continents are there?",
+    "options": ["5", "6", "7", "8"],
+    "correctAnswer": "7"
+  },
+  {
+    "question": "Which animal is known as the King of the Jungle?",
+    "options": ["Tiger", "Elephant", "Lion", "Leopard"],
+    "correctAnswer": "Lion"
+  },
+  {
+    "question": "What is the freezing point of water?",
+    "options": ["0°C", "10°C", "32°C", "100°C"],
+    "correctAnswer": "0°C"
+  },
+  {
+    "question": "Which organ pumps blood through the body?",
+    "options": ["Lungs", "Liver", "Heart", "Kidneys"],
+    "correctAnswer": "Heart"
+  },
+  {
+    "question": "Which planet has rings around it?",
+    "options": ["Mars", "Earth", "Saturn", "Venus"],
+    "correctAnswer": "Saturn"
+  },
+  {
+    "question": "Who painted the Mona Lisa?",
+    "options": ["Michelangelo", "Pablo Picasso", "Leonardo da Vinci", "Vincent van Gogh"],
+    "correctAnswer": "Leonardo da Vinci"
+  },
+  {
+    "question": "What do bees collect from flowers?",
+    "options": ["Water", "Leaves", "Nectar", "Seeds"],
+    "correctAnswer": "Nectar"
+  },
+  {
+    "question": "What is 12 x 12?",
+    "options": ["124", "142", "144", "134"],
+    "correctAnswer": "144"
+  },
+  {
+    "question": "Which metal is liquid at room temperature?",
+    "options": ["Iron", "Gold", "Mercury", "Aluminum"],
+    "correctAnswer": "Mercury"
+  },
+  {
+    "question": "What is the main source of energy for the Earth?",
+    "options": ["Moon", "Stars", "Sun", "Electricity"],
+    "correctAnswer": "Sun"
+  },
+  {
+    "question": "How many hours are there in a day?",
+    "options": ["12", "18", "24", "30"],
+    "correctAnswer": "24"
+  },
+  {
+    "question": "Which language is spoken in Brazil?",
+    "options": ["Spanish", "English", "Portuguese", "French"],
+    "correctAnswer": "Portuguese"
+  },
+  {
+    "question": "What color are emeralds?",
+    "options": ["Blue", "Red", "Green", "Yellow"],
+    "correctAnswer": "Green"
+  },
+  {
+    "question": "What do we call animals that eat only plants?",
+    "options": ["Carnivores", "Omnivores", "Herbivores", "Insectivores"],
+    "correctAnswer": "Herbivores"
+  },
+  {
+    "question": "What is the tallest mountain in the world?",
+    "options": ["K2", "Mount Everest", "Kangchenjunga", "Makalu"],
+    "correctAnswer": "Mount Everest"
+  },
+  {
+    "question": "How many teeth does a normal adult have?",
+    "options": ["28", "30", "32", "34"],
+    "correctAnswer": "32"
+  },
+  {
+    "question": "What is the currency of Japan?",
+    "options": ["Yuan", "Won", "Dollar", "Yen"],
+    "correctAnswer": "Yen"
+  },
+  {
+    "question": "Which is the longest river in the world?",
+    "options": ["Amazon", "Yangtze", "Nile", "Mississippi"],
+    "correctAnswer": "Nile"
+  },
+  {
+    "question": "Which bird can mimic human speech?",
+    "options": ["Eagle", "Sparrow", "Parrot", "Owl"],
+    "correctAnswer": "Parrot"
+  },
+  {
+    "question": "How many sides does a hexagon have?",
+    "options": ["5", "6", "7", "8"],
+    "correctAnswer": "6"
+  },
+  {
+    "question": "Which is the fastest land animal?",
+    "options": ["Lion", "Horse", "Cheetah", "Leopard"],
+    "correctAnswer": "Cheetah"
+  },
+  {
+    "question": "What is the boiling point of water?",
+    "options": ["90°C", "100°C", "110°C", "120°C"],
+    "correctAnswer": "100°C"
+  },
+  {
+    "question": "Which country invented pizza?",
+    "options": ["France", "Italy", "USA", "Greece"],
+    "correctAnswer": "Italy"
+  },
+  {
+    "question": "Which fruit is known for having lots of potassium?",
+    "options": ["Apple", "Orange", "Banana", "Grapes"],
+    "correctAnswer": "Banana"
+  },
+  {
+    "question": "Which is the hardest natural substance?",
+    "options": ["Iron", "Steel", "Diamond", "Gold"],
+    "correctAnswer": "Diamond"
+  },
+  {
+    "question": "How many planets are in our solar system?",
+    "options": ["7", "8", "9", "10"],
+    "correctAnswer": "8"
+  },
+  {
+    "question": "Who wrote 'Harry Potter'?",
+    "options": ["J.K. Rowling", "J.R.R. Tolkien", "Stephen King", "Roald Dahl"],
+    "correctAnswer": "J.K. Rowling"
+  },
+  {
+    "question": "Which instrument has 88 keys?",
+    "options": ["Guitar", "Violin", "Piano", "Flute"],
+    "correctAnswer": "Piano"
+  },
+  {
+    "question": "Which animal is known for its black and white stripes?",
+    "options": ["Tiger", "Zebra", "Panther", "Leopard"],
+    "correctAnswer": "Zebra"
+  },
+  {
+    "question": "Which country has the largest population?",
+    "options": ["India", "USA", "China", "Russia"],
+    "correctAnswer": "China"
+  },
+  {
+    "question": "Which part of the plant conducts photosynthesis?",
+    "options": ["Root", "Stem", "Flower", "Leaf"],
+    "correctAnswer": "Leaf"
+  },
+  {
+    "question": "How many colors are in a rainbow?",
+    "options": ["6", "7", "8", "9"],
+    "correctAnswer": "7"
+  },
+  {
+    "question": "What is the smallest prime number?",
+    "options": ["0", "1", "2", "3"],
+    "correctAnswer": "2"
+  },
+  {
+    "question": "Which is the largest planet in our solar system?",
+    "options": ["Earth", "Mars", "Jupiter", "Saturn"],
+    "correctAnswer": "Jupiter"
+  },
+  {
+    "question": "Which famous scientist developed the theory of relativity?",
+    "options": ["Isaac Newton", "Albert Einstein", "Stephen Hawking", "Marie Curie"],
+    "correctAnswer": "Albert Einstein"
+  },
+  {
+    "question": "What is the chemical symbol for gold?",
+    "options": ["Go", "Ag", "Gd", "Au"],
+    "correctAnswer": "Au"
+  },
+  {
+    "question": "How many bones are in the human body?",
+    "options": ["206", "201", "212", "220"],
+    "correctAnswer": "206"
+  },
+  {
+    "question": "Which month has 28 or 29 days?",
+    "options": ["January", "March", "February", "May"],
+    "correctAnswer": "February"
+  },
+  {
+    "question": "Which country is shaped like a boot?",
+    "options": ["Spain", "France", "Italy", "Greece"],
+    "correctAnswer": "Italy"
+  },
+  {
+    "question": "What do you call a baby dog?",
+    "options": ["Cub", "Calf", "Pup", "Chick"],
+    "correctAnswer": "Pup"
+  }
+]
