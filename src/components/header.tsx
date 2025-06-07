@@ -17,6 +17,11 @@ export default function Header({ players = [] }: any) {
 
   function resetStats() {
     setSeed("0 0 0")
+    useEffect(() => {
+      if (typeof window !== "undefined") {
+        localStorage.setItem("seed", seed)
+      }
+    }, []);
   }
   
 
@@ -67,12 +72,12 @@ export default function Header({ players = [] }: any) {
           className="ri-check-line"></i> Right answers: {seed.split(" ")[1]}</h2>
           <h2><i style={{color: "#FF4F4F"}} 
           className="ri-close-fill"></i> wrong answers: {seed.split(" ")[2]}</h2>
-          <button>Reset Stats</button>
+          <button onClick={() => resetStats()}>Reset Stats</button>
         </div>
         <aside>
           <h1>Ranking</h1>
-          <h2>Current place:</h2>
-          <h2>Players: {players.length}</h2>
+          <h2><i className="ri-medal-line"></i> Current place:</h2>
+          <h2><i className="ri-team-fill"></i> Players: {players.length}</h2>
           <ul>
             {players
             .slice()

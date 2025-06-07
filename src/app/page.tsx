@@ -36,6 +36,8 @@ export default function Home() {
   }, [answered])
 
   function handleAnswer(haveAnswered: any) {
+    const audio = new Audio("/sounds/pop.mp3");
+    audio.play()
     if (randomIndex === null) return;
     setAnswered(answered + 1);
     setAnsweredIndexes([...answeredIndexes, randomIndex]);
