@@ -23,12 +23,14 @@ export default function Header({ players = [] }: any) {
   return (
     <>
       <div className={styles.header}>
-        <div onClick={() => setIsOpSettings(isOpSettings? false : true)} className={`${styles.menuIcon} ${isOpSettings? styles.open : ""}`}>
+        <div onClick={() => setIsOpSettings(!isOpStats && !isOpSettings)} className={`${styles.menuIcon} ${isOpSettings? styles.open : ""}`}>
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <button className={`${styles.stats} ${!isOpSettings? styles.open : styles.close}`}>
+        <button 
+        onClick={() => setIsOpStats(!isOpSettings && !isOpStats)}
+        className={`${styles.statsBtn} ${!isOpSettings? styles.open : styles.close}`}>
           <span className="ri-list-unordered"></span>
           <span>Stats</span>
         </button>
@@ -39,18 +41,18 @@ export default function Header({ players = [] }: any) {
 
       <div className={`${styles.settings} ${isOpSettings ? styles.open : ""}`}>
         <div>
-          <h1 style={{transitionDelay: "400ms"}}>Settings</h1>
-          <div style={{transitionDelay: "500ms"}}>
+          <h1 style={{animationDelay: "400ms"}}>Settings</h1>
+          <div style={{animationDelay: "500ms"}}>
             <label htmlFor="music"><i className="ri-music-2-fill"></i> Music:</label>
             <input type="checkbox" id="music"/>
           </div>
-          <div style={{transitionDelay: "600ms"}}>
+          <div style={{animationDelay: "600ms"}}>
             <label htmlFor="sound"><i className="ri-volume-up-fill"></i>Sound:</label>
             <input type="checkbox" id="sound"/>
           </div>
         </div>
         <button onClick={() => setIsOpSettings(false)}
-          style={{transitionDelay: "500ms"}}>
+          style={{animationDelay: "500ms"}}>
           <i className="ri-logout-box-line"></i>
           <p>Leave</p>
         </button>
@@ -65,16 +67,30 @@ export default function Header({ players = [] }: any) {
           className="ri-check-line"></i> Right answers: {seed.split(" ")[1]}</h2>
           <h2><i style={{color: "#FF4F4F"}} 
           className="ri-close-fill"></i> wrong answers: {seed.split(" ")[2]}</h2>
-          <button>Resey Stats</button>
+          <button>Reset Stats</button>
         </div>
         <aside>
           <h1>Ranking</h1>
           <h2>Current place:</h2>
           <h2>Players: {players.length}</h2>
           <ul>
-            {players.map((player:any, index:number) => (
-              <li key={index}><span>{index + 1}. {player.name}</span> <span>{player.points} points</span></li>
+            {players
+            .slice()
+            .sort((a: any, b: any) => b.points - a.points)
+            .map((player:any, index: number) => (
+              <li 
+              className={
+                index === 0
+                  ? styles.firstPlace
+                  : index === 1
+                  ? styles.secondPlace
+                  : index === 2
+                  ? styles.thirdPlace
+                  : styles.defaultPlace
+              }
+              key={index}><span><span>{index + 1}.</span> {player.name}</span> <span>{player.points} points</span></li>
             ))}
+    
           </ul>
         </aside>
       </div>
