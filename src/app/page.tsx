@@ -12,6 +12,8 @@ export default function Home() {
   const [isLose, setIsLose] = useState(false)
   const [answeredIndexes, setAnsweredIndexes] = useState<number[]>([]);
   const [correct, setCorrect] = useState(0);
+  const [seed, setSeed] = useState("")
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (answeredIndexes.length === quizs.length) {
@@ -24,6 +26,14 @@ export default function Home() {
     } while (answeredIndexes.includes(idx));
     setRandomIndex(idx);
   }, [answered]);
+  const sesSeed = localStorage.getItem("seed")?.split(" ") || "0 0 0".split(" ");
+
+  useEffect(() => {
+    if(Number(sesSeed[0]) < answered) {
+      setSeed(`${answered} ${correct} ${answered - correct}`)
+      localStorage.setItem("seed", seed)
+    }
+  }, [answered])
 
   function handleAnswer(haveAnswered: any) {
     if (randomIndex === null) return;
@@ -39,7 +49,7 @@ export default function Home() {
     }
   }
   
-  const [time, setTime] = useState(300);
+  const [time, setTime] = useState(500);
   useEffect(() => {
     if (time > 0 && answered < quizs.length) {
       const timer = setTimeout(() => {
@@ -47,7 +57,33 @@ export default function Home() {
       }, 1000);
       return () => clearTimeout(timer);
     }
+    if(time <= 0) {
+      setIsLose(true)
+    }
   }, [time, answered]);
+
+  function handleAgain() {
+    setTime(60)
+    setAnswered(0)
+    setAnsweredIndexes([]);
+    setCorrect(0)
+    setPoints(0)
+    setSeed("0 0 0")
+    localStorage.setItem("seed", seed)
+    setIsLose(false)
+  }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault();
+  setError(null);
+  const formData = new FormData(e.currentTarget);
+  const result = await uploadResult(formData);
+  if (result?.error) {
+    setError(result.error);
+  } else {
+  }
+}
+
   return (
     <div className={styles.page}>
       <div className={styles.quizSummary}>
@@ -75,17 +111,23 @@ export default function Home() {
         </>
       )}
       {answered === quizs.length &&
-        <>
-          <h2>correct answers: {correct}</h2>
-          <h3>wrong answers: {quizs.length - correct}</h3>
+        <div className={styles.upload}>
+          <h2>answered:</h2>
+          <h2><i style={{color: "#42AE5A"}} className="ri-check-line"></i> correct answers: {correct}</h2>
+          <h2><i style={{color: "#FF4F4F"}} className="ri-close-fill"></i> wrong answers: {quizs.length - correct}</h2>
           <h4>time left: {String(Math.floor(time / 60))}:{String(time % 60)}</h4>
-          <form action={uploadResult}>
-            <input type="hidden" name='name' defaultValue={localStorage.getItem("name") ?? ""} />
+          <form onSubmit={handleSubmit}>
+            <input type="text" placeholder="name" name='name' defaultValue={localStorage.getItem("name") ?? ""} />
             <input type="hidden" name='points' defaultValue={points} />
-            <button type="submit">ok</button>
+            <button type="submit">upload stats?</button>
+            {error && <div style={{color: "red"}}>{error}</div>}
           </form>
-        </>
+        </div>
       }
+      <div className={`${styles.lose} ${isLose? styles.true : ""}`}>
+        <p>Time out. u lose</p>
+        <button onClick={() => handleAgain()}>try again</button>
+      </div>
     </div>
   );
 }

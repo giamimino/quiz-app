@@ -1,11 +1,24 @@
 "use client"
 import 'remixicon/fonts/remixicon.css'
 import styles from "../styles/header.module.scss"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
-export default function Header() {
-  const [isOpSettings, setIsOpSettings] = useState(false)
+export default function Header({ players = [] }: any) {
+  const [isOpSettings, setIsOpSettings] = useState(false);
+  const [isOpStats, setIsOpStats] = useState(false)
+  const [seed, setSeed] = useState("0 0 0");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setSeed(localStorage.getItem("seed") || "0 0 0");
+    }
+  }, []);
+
+  function resetStats() {
+    setSeed("0 0 0")
+  }
+  
 
   return (
     <>
@@ -42,6 +55,28 @@ export default function Header() {
           <p>Leave</p>
         </button>
         
+      </div>
+
+      <div className={`${styles.stats} ${isOpStats? styles.open : ""}`}>
+        <div>
+          <h1>Stats</h1>
+          <h2>Answered: {seed.split(" ")[0]}</h2>
+          <h2><i style={{color: "#42AE5A"}} 
+          className="ri-check-line"></i> Right answers: {seed.split(" ")[1]}</h2>
+          <h2><i style={{color: "#FF4F4F"}} 
+          className="ri-close-fill"></i> wrong answers: {seed.split(" ")[2]}</h2>
+          <button>Resey Stats</button>
+        </div>
+        <aside>
+          <h1>Ranking</h1>
+          <h2>Current place:</h2>
+          <h2>Players: {players.length}</h2>
+          <ul>
+            {players.map((player:any, index:number) => (
+              <li key={index}><span>{index + 1}. {player.name}</span> <span>{player.points} points</span></li>
+            ))}
+          </ul>
+        </aside>
       </div>
     </>
   )

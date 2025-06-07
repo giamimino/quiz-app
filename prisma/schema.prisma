@@ -16,5 +16,5 @@ datasource db {
 model Points {
   id String @id @default(cuid())
   points Int
-  name String
+  name String @unique
 }
