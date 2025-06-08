@@ -132,8 +132,8 @@ export default function Header({ players = [] }:  { players: Player[] }) {
           <ul>
             {players
             .slice()
-            .sort((a: any, b: any) => b.points - a.points)
-            .map((player:any, index: number) => (
+            .sort((a: Player, b: Player) => b.points - a.points)
+            .map((player: Player, index: number) => (
               <li 
               className={
                 index === 0

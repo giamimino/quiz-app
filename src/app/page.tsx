@@ -32,10 +32,12 @@ export default function Home() {
   useEffect(() => {
     const sesSeed = localStorage.getItem("seed")?.split(" ") || "0 0 0".split(" ");
     if(Number(sesSeed[0]) < answered) {
-      setSeed(`${answered} ${correct} ${answered - correct}`)
-      localStorage.setItem("seed", seed)
+      const newSeed = `${answered} ${correct} ${answered - correct}`;
+      setSeed(newSeed);
+      localStorage.setItem("seed", newSeed);
     }
-  }, [answered])
+  }, [answered, correct]);
+
 
   function handleAnswer(haveAnswered: String) {
     const audio = new Audio("/sounds/pop.mp3");
