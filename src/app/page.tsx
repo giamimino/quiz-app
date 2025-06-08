@@ -45,16 +45,16 @@ export default function Home() {
     setAnswered(answered + 1);
     setAnsweredIndexes([...answeredIndexes, randomIndex]);
     if (haveAnswered === quizs[randomIndex].correctAnswer) {
-      setPoints(points + 100);
-      setTime(time + 30);
+      setPoints(points + 105);
+      setTime(time + 25);
       setCorrect(correct + 1);
     } else {
-      setPoints(points + 10);
-      setTime(time - 10);
+      setPoints(points + 15);
+      setTime(time - 15);
     }
   }
   
-  const [time, setTime] = useState(60);
+  const [time, setTime] = useState(15);
   useEffect(() => {
     if (time > 0 && answered < quizs.length) {
       const timer = setTimeout(() => {
@@ -68,7 +68,7 @@ export default function Home() {
   }, [time, answered]);
 
   function handleAgain() {
-    setTime(60)
+    setTime(20)
     setAnswered(0)
     setAnsweredIndexes([]);
     setCorrect(0)
