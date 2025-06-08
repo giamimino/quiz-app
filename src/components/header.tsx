@@ -1,13 +1,54 @@
 "use client"
 import 'remixicon/fonts/remixicon.css'
 import styles from "../styles/header.module.scss"
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 export default function Header({ players = [] }: any) {
   const [isOpSettings, setIsOpSettings] = useState(false);
   const [isOpStats, setIsOpStats] = useState(false)
   const [seed, setSeed] = useState("0 0 0");
+  const [playMusic, setPlayMusic] = useState(true);
+  const [playSound, setPlaySound] = useState(true);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+
+  useEffect(() => {
+    if (!audioRef.current) return;
+
+    if (playMusic) {
+      const playAudio = () => {
+        audioRef.current?.play().catch((err) => {
+          console.warn("Audio play failed:", err);
+        });
+      };
+
+      document.body.addEventListener("click", playAudio, { once: true });
+      return () => document.body.removeEventListener("click", playAudio);
+    } else {
+      audioRef.current.pause();
+    }
+  }, [playMusic]);
+
+
+
+
+  useEffect(() => {
+    const musicPref = localStorage.getItem("music");
+    const soundPref = localStorage.getItem("sound");
+    setPlayMusic(musicPref === "true");
+    setPlaySound(soundPref === "true");
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("music", String(playMusic));
+  }, [playMusic]);
+
+  useEffect(() => {
+    localStorage.setItem("sound", String(playSound));
+  }, [playSound]);
+
+
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -27,6 +68,12 @@ export default function Header({ players = [] }: any) {
 
   return (
     <>
+    <audio
+        ref={audioRef}
+        src="/sounds/bgSong.mp3"
+        loop
+        controls={false}
+      />
       <div className={styles.header}>
         <div onClick={() => setIsOpSettings(!isOpStats && !isOpSettings)} className={`${styles.menuIcon} ${isOpSettings? styles.open : ""}`}>
           <span></span>
@@ -49,11 +96,15 @@ export default function Header({ players = [] }: any) {
           <h1 style={{animationDelay: "400ms"}}>Settings</h1>
           <div style={{animationDelay: "500ms"}}>
             <label htmlFor="music"><i className="ri-music-2-fill"></i> Music:</label>
-            <input type="checkbox" id="music"/>
+            <input 
+            checked={playMusic}
+            onChange={() => setPlayMusic(prev => !prev)} type="checkbox" id="music"/>
           </div>
           <div style={{animationDelay: "600ms"}}>
             <label htmlFor="sound"><i className="ri-volume-up-fill"></i>Sound:</label>
-            <input type="checkbox" id="sound"/>
+            <input 
+            checked={playSound}
+            onChange={() => setPlaySound(prev => !prev)} type="checkbox" id="sound"/>
           </div>
         </div>
         <button onClick={() => setIsOpSettings(false)}

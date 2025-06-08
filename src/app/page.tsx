@@ -15,6 +15,8 @@ export default function Home() {
   const [seed, setSeed] = useState("")
   const [error, setError] = useState<string | null>(null);
 
+  
+
   useEffect(() => {
     if (answeredIndexes.length === quizs.length) {
       setRandomIndex(null);
@@ -37,7 +39,8 @@ export default function Home() {
 
   function handleAnswer(haveAnswered: any) {
     const audio = new Audio("/sounds/pop.mp3");
-    audio.play()
+    {localStorage.getItem("sound") === "true" && audio.play()}
+
     if (randomIndex === null) return;
     setAnswered(answered + 1);
     setAnsweredIndexes([...answeredIndexes, randomIndex]);
@@ -51,7 +54,7 @@ export default function Home() {
     }
   }
   
-  const [time, setTime] = useState(500);
+  const [time, setTime] = useState(60);
   useEffect(() => {
     if (time > 0 && answered < quizs.length) {
       const timer = setTimeout(() => {
@@ -91,13 +94,13 @@ export default function Home() {
       <div className={styles.quizSummary}>
         <div>
           <i className="ri-question-line"></i>
-          <p>{answered}/{quizs.length}</p>
+          <p>{String(answered).padStart(2, "0")}/{quizs.length}</p>
         </div>
         <div>{points} points</div>
         <div>
           <p>
-            {String(Math.floor(time / 60))}:
-            {String(time % 60)}
+            {String(Math.floor(time / 60)).padStart(2, "0")}:
+            {String(time % 60).padStart(2, "0")}
           </p>
           <i className="ri-time-line"></i>
         </div>
@@ -117,7 +120,7 @@ export default function Home() {
           <h2>answered:</h2>
           <h2><i style={{color: "#42AE5A"}} className="ri-check-line"></i> correct answers: {correct}</h2>
           <h2><i style={{color: "#FF4F4F"}} className="ri-close-fill"></i> wrong answers: {quizs.length - correct}</h2>
-          <h4>time left: {String(Math.floor(time / 60))}:{String(time % 60)}</h4>
+          <h4>time left: {String(Math.floor(time / 60)).padStart(2, "0")}:{String(time % 60).padStart(2, "0")}</h4>
           <form onSubmit={handleSubmit}>
             <input type="text" placeholder="name" name='name' defaultValue={localStorage.getItem("name") ?? ""} />
             <input type="hidden" name='points' defaultValue={points} />
