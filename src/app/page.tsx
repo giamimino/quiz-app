@@ -39,7 +39,7 @@ export default function Home() {
   }, [answered, correct]);
 
 
-  function handleAnswer(haveAnswered: String) {
+  function handleAnswer(haveAnswered: string) {
     const audio = new Audio("/sounds/pop.mp3");
     if (localStorage.getItem("sound") === "true") {
       audio.play();
