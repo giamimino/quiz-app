@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import HeaderWrapper from "@/components/headerWrapper";
-import BackgroundMusic from "@/components/BackgroundMusic";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +17,6 @@ export default function RootLayout({
       <body>
         <HeaderWrapper />
         {children}
-        <BackgroundMusic />
       </body>
     </html>
   );

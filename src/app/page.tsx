@@ -27,19 +27,22 @@ export default function Home() {
       idx = Math.floor(Math.random() * quizs.length);
     } while (answeredIndexes.includes(idx));
     setRandomIndex(idx);
-  }, [answered]);
-  const sesSeed = localStorage.getItem("seed")?.split(" ") || "0 0 0".split(" ");
-
+  }, [answered, answeredIndexes]);
+  
   useEffect(() => {
+    const sesSeed = localStorage.getItem("seed")?.split(" ") || "0 0 0".split(" ");
     if(Number(sesSeed[0]) < answered) {
       setSeed(`${answered} ${correct} ${answered - correct}`)
       localStorage.setItem("seed", seed)
     }
   }, [answered])
 
-  function handleAnswer(haveAnswered: any) {
+  function handleAnswer(haveAnswered: String) {
     const audio = new Audio("/sounds/pop.mp3");
-    {localStorage.getItem("sound") === "true" && audio.play()}
+    if (localStorage.getItem("sound") === "true") {
+      audio.play();
+    }
+
 
     if (randomIndex === null) return;
     setAnswered(answered + 1);

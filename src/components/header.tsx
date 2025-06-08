@@ -3,8 +3,13 @@ import 'remixicon/fonts/remixicon.css'
 import styles from "../styles/header.module.scss"
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
+type Player = {
+  name: string;
+  points: number;
+};
 
-export default function Header({ players = [] }: any) {
+
+export default function Header({ players = [] }:  { players: Player[] }) {
   const [isOpSettings, setIsOpSettings] = useState(false);
   const [isOpStats, setIsOpStats] = useState(false)
   const [seed, setSeed] = useState("0 0 0");
@@ -54,15 +59,10 @@ export default function Header({ players = [] }: any) {
     if (typeof window !== "undefined") {
       setSeed(localStorage.getItem("seed") || "0 0 0");
     }
-  }, []);
+  }, [seed]);
 
   function resetStats() {
     setSeed("0 0 0")
-    useEffect(() => {
-      if (typeof window !== "undefined") {
-        localStorage.setItem("seed", seed)
-      }
-    }, []);
   }
   
 
